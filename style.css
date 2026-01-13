@@ -51,11 +51,11 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .content {
     max-width: 900px;
   }
-}
+} */
 
 
 
@@ -77,8 +77,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     font-size: 2rem;
     margin: 3rem 0 1.5rem 0;
-    color: #09ff00;
+    color: #ffffff;
     text-align: center;
+}
+
+.game-title {
+    color: #09ff00;
+
 }
 
 p {
@@ -95,7 +100,7 @@ p {
 
 /* Links */
 a {
-    color: #007BFF;
+    color: #2b58fb;
     text-decoration: none;
 }
 
@@ -103,19 +108,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Buttons */
-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
-button:hover {
-    background-color: #0056b3;
-}
 
 /* message */
 .message {
@@ -428,14 +421,14 @@ svg {
    PODLE POČTU BUBLIN
    ===================================================== */
 
-.avatar--higher--s {
+.higher--s {
    margin-bottom: 2rem;
 }
-.avatar--higher--m {
+.higher--m {
    margin-bottom: 5rem;
 }
 
-.avatar--higher--l {
+.higher--l {
    margin-bottom: 7rem;
 }
 
@@ -457,6 +450,10 @@ svg {
     šířka scroll obsahu max-width: 840–960ppx */
 
 
+/* =====================================================
+   GAME
+   ===================================================== */
+
 
 .game {
   width: 100%;
@@ -470,3 +467,54 @@ svg {
 }
 
 
+/* =====================================================
+   CREW
+   ===================================================== */
+.crew-members-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+  min-height: 200px;
+ 
+}
+
+.crew-member-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ← KLÍČOVÉ */
+}
+
+
+.crew-name {
+  color: #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.crew-button {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: "Chakra Petch", sans-serif;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.dna-logo {
+
+  margin: 10rem auto 0 auto;
+
+}
