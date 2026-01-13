@@ -70,11 +70,27 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
 }
 
+
+
+.section-title {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+    color: #09ff00;
+    text-align: center;
+}
+
 p {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 500;
   font-style: normal;
   margin-bottom: 1em;
+}
+
+.love-text {
+  font-size: 2rem;
+
 }
 
 /* Links */
@@ -218,6 +234,57 @@ button:hover {
   100% { transform: translateY(0); }
 }
 
+
+
+/* barevná fáze defaultně neviditelná */
+.movement-phase {
+  opacity: 0;
+}
+
+.avatar--unicorn.movement--talk .avatar-movement {
+  animation-name: talkUnicorn;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: var(--talk-delay, 0s);
+  animation-play-state: running;
+}
+
+@keyframes talkUnicorn {
+  0%   { transform: translate(0, 0); }
+
+  12%  { transform: translate(4px, -6px); }
+  20%  { transform: translate(1px, -2px); }
+
+  34%  { transform: translate(6px, -9px); }
+  42%  { transform: translate(2px, -3px); }
+
+  56%  { transform: translate(5px, -7px); }
+  64%  { transform: translate(0, 0); }
+
+  78%  { transform: translate(3px, -4px); }
+  86%  { transform: translate(1px, -1px); }
+
+  100% { transform: translate(0, 0); }
+}
+
+
+.avatar--unicorn.movement-phase--visible .movement-phase {
+  animation: unicornPhase 3s ease-in-out both;
+  animation-delay: var(--talk-delay, 0s);
+}
+
+@keyframes unicornPhase {
+  0%   { opacity: 0; }
+  20%  { opacity: 0; }
+
+  35%  { opacity: 1; }
+  55%  { opacity: 1; }
+
+  70%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 .alfa {
     max-width: 100px;
 }
@@ -235,6 +302,23 @@ svg {
 
 
 
+.heart-symbol {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0 0.15em;
+  vertical-align: -0.15em;
+
+  fill: #ff5116;
+  animation: beat 1s infinite;
+}
+@keyframes beat {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.15); }
+  40%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
 
 
 
@@ -246,11 +330,6 @@ svg {
 /* ZÁKLAD BUBLINY */
 .bubble {
   position: relative;
-
-  background-image: url("bubble_base.svg"); /* export z Illustratoru */
-  background-repeat: no-repeat;
-  background-size: 100% 100%; /* povolená deformace */
-  background-position: center;
 
   padding: 1rem 2rem;
   margin: 0.5rem;
@@ -264,25 +343,59 @@ svg {
   align-items: center;
   justify-content: center;
 }
+/* POZADÍ JAKO SAMOSTATNÁ VRSTVA */
+.bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("bubble_base.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+
+  z-index: 0;
+}
 
 /* TEXT */
 .bubble p {
+  position: relative;
+  z-index: 1;
+
   margin: 0;
-  text-align: center;
   padding: 1rem;
+  text-align: center;
 }
+/* =====================================================
+   ZRCADLENÍ BUBLIN
+   ===================================================== */
+  /* RIGHT DOWN */
+  .bubble--rd::before {
+    transform: scaleX(-1);
+  }
+
+  /* LEFT UP */
+  .bubble--lu::before {
+    transform: scaleY(-1);
+  }
+
+  /* RIGHT UP */
+  .bubble--ru::before {
+    transform: scaleX(-1) scaleY(-1);
+  }
+
 
 /* =====================================================
    VELIKOSTI
    ===================================================== */
 
 .bubble--xs {
-  width: 100px;
+  width: 120px;
   min-height: 80px;
 }
 
 .bubble--s {
-  width: 220px;
+  width: 190px;
   min-height: 110px;
 }
 
@@ -301,38 +414,8 @@ svg {
   min-height: 220px;
 }
 
-/* =====================================================
-   SMĚRY OCÁSKU (transformace SVG pozadí)
-   ===================================================== */
 
-/* RIGHT DOWN */
-.bubble--rd {
-  transform: scaleX(-1);
-}
 
-/* LEFT UP */
-.bubble--lu {
-  transform: scaleY(-1);
-}
-
-/* RIGHT UP */
-.bubble--ru {
-  transform: scaleX(-1) scaleY(-1);
-}
-
-/* =====================================================
-   OPRAVA ZRCADLENÍ TEXTU
-   ===================================================== */
-
-.bubble--rd p,
-.bubble--ru p {
-  transform: scaleX(-1);
-}
-
-.bubble--lu p,
-.bubble--ru p {
-  transform: scaleY(-1);
-}
 
 /* =====================================================
    PODLE AVATARU
@@ -340,6 +423,28 @@ svg {
 .bubble--pookie {
     margin-bottom: 3rem;
 }
+
+/* =====================================================
+   PODLE POČTU BUBLIN
+   ===================================================== */
+
+.avatar--higher--s {
+   margin-bottom: 2rem;
+}
+.avatar--higher--m {
+   margin-bottom: 5rem;
+}
+
+.avatar--higher--l {
+   margin-bottom: 7rem;
+}
+
+.bubble-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+ 
 
  /* breakpoints */
  /* @media (min-width: 600px)
@@ -351,5 +456,17 @@ svg {
  /* @media (min-width: 1440px)
     šířka scroll obsahu max-width: 840–960ppx */
 
+
+
+.game {
+  width: 100%;
+  height: 100%;
+} 
+
+.game video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 
