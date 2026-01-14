@@ -376,6 +376,11 @@ svg {
 }
 
 
+#love-bubble .bubble {
+  max-width: 100px;
+
+}
+
 
 /* =====================================================
    ZRCADLENÍ BUBLIN
