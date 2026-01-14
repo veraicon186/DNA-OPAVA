@@ -85,8 +85,10 @@
 
               </svg>
              </div>
-            <div class="bubble bubble--m bubble--pookie">
-              <p>Co je vlastně ta DNA?</p>
+            <div class="bubble higher--s">
+              <div class="bubble-content">
+                  <p>Co je vlastně ta DNA?</p>
+              </div>
            </div>
              
          </div>
@@ -151,8 +153,10 @@
               </svg>
               </div>
 
-            <div class="bubble bubble--l bubble--rd">
-              <p>Brutálně malé věci, které dohromady dělají mega velké věci!</p>
+            <div class="bubble bubble--rd">
+               <div class="bubble-content">
+                  <p>Brutálně malé věci, které dohromady dělají mega velké věci!</p>
+               </div>
            </div>
 
         </div>
@@ -224,8 +228,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m bubble--pookie">
-              <p>Prý jsou to kódy věčného života?</p>
+            <div class="bubble higher--s">
+               <div class="bubble-content">
+                  <p>Prý jsou to kódy věčného života?</p>
+               </div>
             </div>
              
          </div>
@@ -289,8 +295,10 @@
               </svg>
               </div>
 
-              <div class="bubble bubble--l bubble--rd">
-                <p>Dalo by se říct... transformace historie do současnosti</p>
+              <div class="bubble bubble--rd">
+                 <div class="bubble-content">
+                      <p>Dalo by se říct...<br>transformace historie do současnosti</p>
+                 </div>     
               </div>
 
            </div>
@@ -362,13 +370,13 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m bubble--pookie">
-              <p>A co budoucnost?</p>
+            <div class="bubble higher--s">
+               <div class="bubble-content">
+                  <p>A co budoucnost?</p>
+               </div>
             </div>
-             
-         </div>
-
-
+          </div>
+          
          <div class="message right">
               <div class="avatar avatar--brainbox avatar--mirror">
               <svg class="avatar-svg brainbox"
@@ -428,11 +436,13 @@
               </svg>
               </div>
 
-              <div class="bubble bubble--m bubble--rd">
-                <p>Budoucnost je v DNA!</p>
+              <div class="bubble bubble--rd">
+                <div class="bubble-content">
+                    <p>Budoucnost je v DNA!</p>
+                  </div>
               </div>
 
-           </div>
+          </div>
 
         <div class="message left">
              <div class="avatar avatar--pookie">
@@ -500,8 +510,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m bubble--pookie">
-              <p>Epický! DNA je fakticky hustá!</p>
+            <div class="bubble higher--s">
+                <div class="bubble-content">
+                    <p>Epický! DNA je fakticky hustá!</p>
+                </div>
             </div>
              
          </div>
@@ -547,8 +559,10 @@
                 </svg>
               </div>
 
-              <div class="bubble bubble--s">
+              <div class="bubble">
+                <div class="bubble-content"> 
                   <p>Pojďme si zahrát hru!</p>
+                </div>
               </div>
 
           </div>
@@ -619,8 +633,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m bubble--rd bubble--pookie">
-              <p>A jak se hraje?</p>
+            <div class="bubble bubble--rd higher--s">
+              <div class="bubble-content"> 
+                   <p>A jak se hraje?</p>
+              </div>     
             </div>
              
          </div>
@@ -657,8 +673,10 @@
                 </svg>
               </div>
 
-              <div class="bubble bubble--s">
+              <div class="bubble">
+                <div class="bubble-content">
                   <p>Musíte najít správný tvar DNA </p>
+                </div>
               </div>
 
           </div>
@@ -730,10 +748,11 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--l bubble--rd bubble--pookie">
-              <p>Doufám, že to není nějaký TEST DNA?!<br>To by na mne prasklo, že jsem skibidi.</p>
+            <div class="bubble bubble--rd higher--s">
+              <div class="bubble-content">
+                  <p>Doufám, že to není nějaký TEST DNA?!<br>To by na mne prasklo, že jsem skibidi.</p>
+              </div>
             </div>
-             
           </div>
 
           <div class="message left">
@@ -796,11 +815,15 @@
               </div>
 
               <div class="bubble-container">
-                  <div class="bubble bubble--xs">
-                    <p>XD</p>
+                  <div class="bubble">
+                    <div class="bubble-content">
+                      <p>XD</p>
+                    </div>
                   </div>
-                  <div class="bubble bubble--xs bubble--lu">
-                    <p>LMAO</p>
+                  <div class="bubble bubble--lu">
+                    <div class="bubble-content">
+                      <p>LMAO</p>
+                    </div>
                   </div>
               </div>
 
@@ -809,14 +832,59 @@
      </section>
      
      <section class="game-section"> 
+        <img class="section-logo" src="DNA.svg" alt="DNA OPAVA Logo" class="logo">
 
-        <h2 class="section-title game-title">Vyber správný tvar DNA:</h2>
+        <h2 class="section-title">Najdi správný tvar</h2>
 
-         <div class="game">
-          <video autoplay muted playsinline>
-            <source src="dna-game.mp4" type="video/mp4">
-          </video>
-        </div>
+       <div class="game" data-state="idle">
+
+  <div class="game-trigger-grid">
+
+    <div class="game-trigger" data-trigger="1">
+      <img src="1.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="2">
+      <img src="2.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="3">
+      <img src="3.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="4">
+      <img src="4.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="5">
+      <img src="5.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="6">
+      <img src="6.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="7">
+      <img src="7.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="8">
+      <img src="8.svg" alt="">
+    </div>
+
+    <div class="game-trigger" data-trigger="9">
+      <img src="9.svg" alt="">
+    </div>
+
+  </div>
+
+  <video class="game-video" muted playsinline>
+    <source src="dna-game.mp4" type="video/mp4">
+  </video>
+
+</div>
+
+
 
       </section>
 
@@ -854,8 +922,10 @@
                   </svg>
                 </div>
 
-                <div class="bubble bubble--m">
+                <div class="bubble">
+                  <div class="bubble-content">
                     <p>GG, vyhráváš! Ano, DNA OPAVA je opravdu kulatá</p>
+                  </div>
                 </div>
 
          </div>
@@ -930,8 +1000,10 @@
             </div>
 
 
-            <div class="bubble bubble--m bubble--rd bubble--pookie">
-              <p>A když jsem teda  vítěz, vezmete mne do crew?</p>
+            <div class="bubble bubble--rd bubble--pookie">
+              <div class="bubble-content">
+                <p>A když jsem teda  vítěz, vezmete mne do crew?</p>
+              </div>
             </div>
              
           </div>
@@ -968,14 +1040,16 @@
                   </svg>
                 </div>
 
-                <div class="bubble bubble--l">
+                <div class="bubble">
+                  <div class="bubble-content">
                     <p>Jasně, když umíš poznat DNA OPAVA, tak můžeš s námi sestavit novou vizuální identitu města OPAVA</p>
+                  </div>
                 </div>
-
-         </div>
+        
+          </div>
 
             <div class="message right">
-                  <div class="avatar avatar--unicorn movement--talk avatar--mirror higher--m">
+                  <div class="avatar avatar--unicorn movement--talk avatar--mirror higher--l">
                     <svg class="avatar-svg unicorn"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 328.8 422.4"
@@ -1044,42 +1118,46 @@
                   </div>
 
                 <div class="bubble-container">
-                      <div class="bubble bubble--m bubble--rd">
-                        <p>Navrhovat IDENTITU? To je můj sen!</p>
+                      <div class="bubble bubble--rd side--l">
+                        <div class="bubble-content">
+                          <p>Navrhovat IDENTITU?<br>To je můj sen!</p>
+                        </div>
                       </div>
 
-                      <div class="bubble bubble--s bubble--ru">
-                        <p class="love-text">I
-                          <span class="inline-icon">
-                          <svg class="heart-symbol"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 117.68 94.42"
-            aria-hidden="true"
-          >
-            <polygon
-              class="avatar-symbol-shape"
-              fill="#ff5116"
-              points="
-                91.29 62.39
-                117.68 48.37
-                92.72 1.39
-                59.98 18.79
-                59.62 18.44
-                59.54 18.52
-                59.6 18.41
-                24.96 0
-                0 46.97
-                25.2 60.36
-                59.26 94.42
-                91.29 62.39
-              "
-            />
-                          </svg>design!</span>
-                        </p>
+                      <div class="bubble bubble--ru">
+                          <div class="bubble-content">
+                            <p class="love-text">I
+                              <span class="inline-icon">
+                              <svg class="heart-symbol"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 117.68 94.42"
+                aria-hidden="true"
+              >
+                <polygon
+                  class="avatar-symbol-shape"
+                  fill="#ff5116"
+                  points="
+                    91.29 62.39
+                    117.68 48.37
+                    92.72 1.39
+                    59.98 18.79
+                    59.62 18.44
+                    59.54 18.52
+                    59.6 18.41
+                    24.96 0
+                    0 46.97
+                    25.2 60.36
+                    59.26 94.42
+                    91.29 62.39
+                  "
+                />
+                              </svg>design!</span>
+                            </p>
+                          </div>
                       </div>
                 </div>
 
-            </div>
+              </div>
 
 
           <div class="message left">
@@ -1148,8 +1226,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m  bubble--pookie">
-              <p>WOW! Crew se nám hezky rozrůstá!</p>
+            <div class="bubble higher--s">
+              <div class="bubble-content">
+                  <p>WOW! Crew se nám hezky rozrůstá!</p>
+              </div>
             </div>
              
          </div>
@@ -1214,12 +1294,16 @@
               </div>
 
               <div class="bubble-container">
-                  <div class="bubble bubble--m bubble--rd">
-                    <p>A pomůžou nám taky Veronika a Patrik. Oni jsou GOAT! Objevili DNA OPAVA.</p>
+                  <div class="bubble bubble--rd">
+                    <div class="bubble-content">
+                        <p>A pomůžou nám taky Veronika a Patrik. Oni jsou GOAT! Objevili DNA OPAVA.</p>
+                    </div>
                   </div>
 
-                  <div class="bubble bubble--m bubble--ru">
+                  <div class="bubble bubble--ru side--l">
+                    <div class="bubble-content">
                         <p>Jejich prezentace vyhrála v roce 2025 v soutěži o novou sochu Opavy</p>
+                    </div>
                   </div>
               </div>
 
@@ -1258,8 +1342,10 @@
                 </svg>
               </div>
 
-              <div class="bubble bubble--s">
+              <div class="bubble">
+                <div class="bubble-content">
                   <p>Koukni na <a href="https://youtu.be/U-fBIf8D74k">video</a></p>
+                </div>
               </div>
 
           </div>
@@ -1331,8 +1417,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m bubble--rd bubble--pookie">
-              <p>Nebo si stáhni PDFko a vytiskni <a href="#">PEXESO DNA OPAVA</a></p>
+            <div class="bubble bubble--rd bubble--pookie">
+              <div class="bubble-content">
+                <p>Nebo si stáhni PDFko a vytiskni <a href="DNA PEXESO.pdf">PEXESO DNA OPAVA</a></p>
+              </div>
             </div>
              
          </div>
@@ -1396,8 +1484,10 @@
               </svg>
               </div>
 
-                  <div class="bubble bubble--m">
-                    <p>Loni byla DNA OPAVA ještě černobílá</p>
+                  <div class="bubble">
+                    <div class="bubble-content">
+                      <p>Loni byla DNA OPAVA ještě černobílá</p>
+                    </div>
                   </div>
                 
              
@@ -1475,8 +1565,10 @@
             </div>
 
 
-            <div class="bubble bubble--m bubble--rd bubble--pookie">
-              <p>Teď ji společně můžeme pořádně oživit barvami</p>
+            <div class="bubble bubble--rd bubble--pookie">
+              <div class="bubble-content">
+                <p>Teď ji společně můžeme pořádně oživit barvami</p>
+              </div>
             </div>
              
           </div>
@@ -1548,8 +1640,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--m  bubble--pookie">
-              <p>Hustý! A když budeme oživovat, budeme tvořit i ten identikit?</p>
+            <div class="bubble bubble--pookie">
+              <div class="bubble-content">
+                <p>Hustý! A když budeme oživovat, budeme tvořit i ten identikit?</p>
+              </div>
             </div>
              
          </div>
@@ -1614,12 +1708,16 @@
               </div>
 
               <div class="bubble-container">
-                  <div class="bubble bubble--s bubble--rd">
-                    <p>Vlastně tak trochu jo. </p>
+                  <div class="bubble bubble--rd side--r">
+                    <div class="bubble-content">
+                        <p>Vlastně tak<br>trochu jo.</p>
+                    </div>
                   </div>
 
-                  <div class="bubble bubble--m bubble--ru">
+                  <div class="bubble bubble--ru side--l">
+                    <div class="bubble-content">
                         <p>Budeme identifikovat tvář a charakter města, ale bude toho určitě víc...</p>
+                    </div>
                   </div>
               </div>
 
@@ -1696,8 +1794,10 @@
             </div>
 
 
-            <div class="bubble bubble--m">
-              <p>Ukážme všem, jak je Opava výjimečná a na co jsou opavští patrioti právem hrdí</p>
+            <div class="bubble">
+              <div class="bubble-content">
+                <p>Ukážme všem, jak je Opava výjimečná a na co jsou opavští patrioti právem hrdí</p>
+              </div>
             </div>
              
           </div>
@@ -1768,8 +1868,10 @@
               </svg>
              </div>
 
-            <div class="bubble bubble--l bubble--rd bubble--pookie">
-              <p>A jak se k nám můžou přidat ostatní, kteří mají zájem objevovat  DNA OPAVA a vytvořit nejlepší vizuální identitu města?</p>
+            <div class="bubble bubble--rd bubble--pookie">
+              <div class="bubble-content">
+                <p>A jak se k nám můžou přidat ostatní, kteří mají zájem objevovat  DNA OPAVA a vytvořit nejlepší vizuální identitu města?</p>
+              </div>
             </div>
              
          </div>
@@ -1807,8 +1909,10 @@
                 </svg>
               </div>
 
-              <div class="bubble bubble--m">
-                  <p>Easy peasy, ať nás DMnou na naších profilech dole na webu.</p>
+              <div class="bubble">
+                  <div class="bubble-content">
+                    <p>Easy peasy, ať nás DMnou na naších profilech dole na webu.</p>
+                  </div>
               </div>
 
           </div>
@@ -1817,7 +1921,9 @@
 
 
       <section class="crew-section">
-                <h2 class="section-title">DNA CREW:</h2>
+                <img class="section-logo" src="DNA.svg" alt="DNA OPAVA Logo" class="logo">
+
+                <h2 class="section-title">CREW</h2>
 
 
                 <div class="crew-members">
@@ -1859,10 +1965,12 @@
                             </div>
                         
                             <div class="crew-member-text">
-                                <div class="bubble bubble--m">
-                                  <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                <div class="bubble">
+                                   <div class="bubble-content">
+                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                      <button class="crew-button">merch</button>
+                                    </div>
                                 </div>
-                                <button class="crew-button">merch</button>
                             </div>
 
                       </div>
@@ -1944,10 +2052,12 @@
                             </div>
                         
                             <div class="crew-member-text">
-                                <div class="bubble bubble--m">
-                                  <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                <div class="bubble">
+                                   <div class="bubble-content">
+                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                      <button class="crew-button">merch</button>
+                                   </div>
                                 </div>
-                                <button class="crew-button">merch</button>
                             </div>
 
                       </div>
@@ -2021,10 +2131,12 @@
                             </div>
                         
                             <div class="crew-member-text">
-                                <div class="bubble bubble--m">
-                                  <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                <div class="bubble">
+                                   <div class="bubble-content">
+                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                      <button class="crew-button">merch</button>
+                                    </div>
                                 </div>
-                                <button class="crew-button">merch</button>
                             </div>
 
                       </div>
@@ -2109,10 +2221,12 @@
                             </div>
                         
                             <div class="crew-member-text">
-                                <div class="bubble bubble--m">
-                                  <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                <div class="bubble">
+                                    <div class="bubble-content">
+                                        <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                        <button class="crew-button">merch</button>
+                                    </div>
                                 </div>
-                                <button class="crew-button">merch</button>
                             </div>
 
                       </div>
@@ -2182,6 +2296,59 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+<script>
+document.querySelectorAll('.bubble').forEach(bubble => {
+  const content = bubble.querySelector('.bubble-content');
+  if (!content) return;
+
+  const text = content.innerText.trim();
+  const chars = text.length;
+  const height = content.scrollHeight;
+
+  bubble.classList.remove(
+    'bubble--xs',
+    'bubble--s',
+    'bubble--m',
+    'bubble--l',
+    'bubble--xl'
+  );
+
+  // 🔴 EXPLICITNÍ VÝJIMKA
+  if (chars <= 4) {
+    bubble.classList.add('bubble--xs');
+    return;
+  }
+
+  // ✅ PŮVODNÍ LOGIKA PODLE VÝŠKY
+  if (height < 60) {
+    bubble.classList.add('bubble--s');
+  } else if (height < 100) {
+    bubble.classList.add('bubble--m');
+  } else if (height < 150) {
+    bubble.classList.add('bubble--l');
+  } else {
+    bubble.classList.add('bubble--xl');
+  }
+});
+
+
+</script>
+
+
+<script>
+  const game = document.querySelector('.game');
+  const video = document.querySelector('.game-video');
+  const triggers = document.querySelectorAll('.game-trigger');
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      game.dataset.state = 'playing';
+      video.style.display = 'block';
+      video.play();
+    });
+  });
+</script>
 
 
 

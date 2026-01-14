@@ -60,10 +60,6 @@ footer {
 
 
 
-
-
-
-
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -71,32 +67,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
-.section-title {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    margin: 3rem 0 1.5rem 0;
-    color: #ffffff;
-    text-align: center;
-}
-
-.game-title {
-    color: #09ff00;
-
-}
-
 p {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 500;
   font-style: normal;
   margin-bottom: 1em;
+  color: black
 }
 
 .love-text {
-  font-size: 2rem;
+  font-size: 2rem !important;
+  
 
 }
+
 
 /* Links */
 a {
@@ -158,21 +142,21 @@ a:hover {
 }
 
 @keyframes talkPookie {
-  0%   { transform: translateX(0); }
+  0%   { transform: translateY(0); }
 
-  10%  { transform: translateX(6px); }
-  18%  { transform: translateX(1px); }
+  10%  { transform: translateY(-6px); }
+  18%  { transform: translateY(-1px); }
 
-  30%  { transform: translateX(9px); }
-  38%  { transform: translateX(3px); }
+  30%  { transform: translateY(-9px); }
+  38%  { transform: translateY(-3px); }
 
-  52%  { transform: translateX(7px); }
-  60%  { transform: translateX(0); }
+  52%  { transform: translateY(-7px); }
+  60%  { transform: translateY(0); }
 
-  72%  { transform: translateX(5px); }
-  80%  { transform: translateX(2px); }
+  72%  { transform: translateY(-5px); }
+  80%  { transform: translateY(-2px); }
 
-  100% { transform: translateX(0); }
+  100% { transform: translateY(0); }
 }
 
 
@@ -246,17 +230,17 @@ a:hover {
 @keyframes talkUnicorn {
   0%   { transform: translate(0, 0); }
 
-  12%  { transform: translate(4px, -6px); }
-  20%  { transform: translate(1px, -2px); }
+  12%  { transform: translate(-4px, 6px); }
+  20%  { transform: translate(-1px, 2px); }
 
-  34%  { transform: translate(6px, -9px); }
-  42%  { transform: translate(2px, -3px); }
+  34%  { transform: translate(-6px, 9px); }
+  42%  { transform: translate(-2px, 3px); }
 
-  56%  { transform: translate(5px, -7px); }
+  56%  { transform: translate(-5px, 7px); }
   64%  { transform: translate(0, 0); }
 
-  78%  { transform: translate(3px, -4px); }
-  86%  { transform: translate(1px, -1px); }
+  78%  { transform: translate(-3px, 4px); }
+  86%  { transform: translate(-1px, 1px); }
 
   100% { transform: translate(0, 0); }
 }
@@ -293,8 +277,6 @@ svg {
 
 
 
-
-
 .heart-symbol {
   display: inline-block;
   width: 1.1em;
@@ -322,20 +304,28 @@ svg {
 
 /* ZÁKLAD BUBLINY */
 .bubble {
-  position: relative;
+  width: 72vw;
+  max-width: 200px;
 
-  padding: 1rem 2rem;
+  position: relative;
   margin: 0.5rem;
 
-  font-family: "Chakra Petch", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.1;
-  color: #000;
-
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  overflow: visible;
+
 }
+
+@media (min-width: 600px) {
+  .bubble {
+    max-width: 250px;
+  }
+}
+
+
+
 /* POZADÍ JAKO SAMOSTATNÁ VRSTVA */
 .bubble::before {
   content: "";
@@ -344,21 +334,43 @@ svg {
 
   background-image: url("bubble_base.svg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-position: center;
+  background-size: contain;
+
+  transform: none;
 
   z-index: 0;
 }
 
-/* TEXT */
-.bubble p {
+.bubble-content {
   position: relative;
   z-index: 1;
 
-  margin: 0;
-  padding: 1rem;
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+
   text-align: center;
 }
+
+
+/* TEXT */
+
+.bubble-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+ 
+}
+
+@media (min-width: 600px) {
+  .bubble-content p {
+    font-size: 1.3rem;
+  }
+}
+
+
+
 /* =====================================================
    ZRCADLENÍ BUBLIN
    ===================================================== */
@@ -381,62 +393,74 @@ svg {
 /* =====================================================
    VELIKOSTI
    ===================================================== */
-
-.bubble--xs {
-  width: 120px;
-  min-height: 80px;
+.bubble--xs::before {
+  background-image: url("bubble_xs.svg"); /* nebo klidně stejné SVG */
 }
 
-.bubble--s {
-  width: 190px;
-  min-height: 110px;
+.bubble--s::before {
+  background-image: url("bubble_s.svg");
 }
 
-.bubble--m {
-  width: 270px;
-  min-height: 140px;
+.bubble--m::before {
+  background-image: url("bubble_m.svg");
 }
 
-.bubble--l {
-  width: 320px;
-  min-height: 180px;
+.bubble--l::before {
+  background-image: url("bubble_l.svg");
 }
 
-.bubble--xl {
-  width: 380px;
-  min-height: 220px;
+.bubble--xl::before {
+  background-image: url("bubble_xl.svg");
 }
 
+.bubble--xs { min-height: 80px; }
+.bubble--s { min-height: 120px; }
+.bubble--m { min-height: 160px; }
+.bubble--l { min-height: 200px; }
+.bubble--xl { min-height: 240px; }
+
+.bubble--l::before {
+  background-size: 100% 110%;
+}
 
 
 
 /* =====================================================
-   PODLE AVATARU
-   ===================================================== */
-.bubble--pookie {
-    margin-bottom: 3rem;
-}
-
-/* =====================================================
-   PODLE POČTU BUBLIN
+    =====================================================
+   PODLE AVATARU a PODLE POČTU BUBLIN
    ===================================================== */
 
 .higher--s {
-   margin-bottom: 2rem;
+   margin-bottom: 3rem;
 }
 .higher--m {
    margin-bottom: 5rem;
 }
 
 .higher--l {
-   margin-bottom: 7rem;
+   margin-bottom: 9rem;
+}
+
+.higher--xl {
+   margin-bottom: 12rem;
+}
+
+
+.side--l {
+  margin-left: 4rem;
+}
+
+.side--r {
+  margin-right: 4rem;
 }
 
 .bubble-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+
 }
+
+
  
 
  /* breakpoints */
@@ -453,6 +477,77 @@ svg {
 /* =====================================================
    GAME
    ===================================================== */
+.section-title {
+  display: block;
+  width: 100%;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+
+font-size: clamp(1.2rem, 7vw, 3rem);
+
+
+  margin: 2rem 0 ;
+  color: #09ff00;
+  text-align: center;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+
+
+}
+
+/* === GRID 3×3 === */
+.game-trigger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6%;
+}
+
+/* === BUTTON (jen klikací obal) === */
+.game-trigger {
+  all: unset;
+  cursor: pointer;
+}
+
+/* === SVG (skutečné tlačítko) === */
+.game-trigger img,
+.game-trigger svg {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  transition: transform 0.25s ease;
+}
+
+/* === HOVER SCALE === */
+.game-trigger:hover img,
+.game-trigger:hover svg,
+.game-trigger:focus-visible img,
+.game-trigger:focus-visible svg {
+  transform: scale(1.08);
+}
+
+
+/* === VIDEO (SKRYTÉ) === */
+/* VIDEO – FULL WIDTH */
+.game-video {
+  display: none;
+  max-width: 100%;
+  height: auto;
+
+}
+
+.game[data-state="playing"] .game-trigger-grid {
+  display: none;
+}
+
+.game[data-state="playing"] .game-video {
+  display: block;
+}
 
 
 .game {
@@ -460,11 +555,19 @@ svg {
   height: 100%;
 } 
 
-.game video {
-  width: 100%;
-  height: auto;
-  display: block;
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0;
 }
+
+.section-logo {
+  width: 100%;
+  text-align: center;
+}
+
 
 
 /* =====================================================
@@ -476,13 +579,26 @@ svg {
   gap: 2rem;
   margin-top: 5rem;
   min-height: 200px;
+  align-items: flex-end;
  
 }
+
+
 
 .crew-member-text {
   display: flex;
   flex-direction: column;
-  align-items: center; /* ← KLÍČOVÉ */
+  align-items: center; 
+}
+
+.crew-member-text .bubble {
+  max-width: 160px;
+}
+
+@media (min-width: 600px) {
+  .crew-member-text .bubble {
+    max-width: 200px;
+  }
 }
 
 
@@ -506,7 +622,11 @@ svg {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+ 
 }
+
+
+
 
 button:hover {
     background-color: #0056b3;
