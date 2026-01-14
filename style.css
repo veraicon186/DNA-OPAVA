@@ -76,7 +76,7 @@ p {
 }
 
 .love-text {
-  font-size: 2rem !important;
+  font-size: 1.6rem !important;
   
 
 }
@@ -105,7 +105,13 @@ a:hover {
 /* směr */
 .message.left {
   flex-direction: row;
+  
 }
+
+.message.left .bubble-container {
+  margin-left: -3rem;
+}
+
 
 .message.right {
   flex-direction: row-reverse;
@@ -365,7 +371,7 @@ svg {
 
 @media (min-width: 600px) {
   .bubble-content p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -447,11 +453,11 @@ svg {
 
 
 .side--l {
-  margin-left: 4rem;
+  margin-left: 2rem;
 }
 
 .side--r {
-  margin-right: 4rem;
+  margin-right: 2rem;
 }
 
 .bubble-container {
@@ -475,7 +481,7 @@ svg {
 
 
 /* =====================================================
-   GAME
+   SECTION
    ===================================================== */
 .section-title {
   display: block;
@@ -486,16 +492,36 @@ svg {
 font-size: clamp(1.2rem, 7vw, 3rem);
 
 
-  margin: 2rem 0 ;
+  margin: 2rem 0 0 0;
   color: #09ff00;
   text-align: center;
   text-transform: uppercase;
 
   white-space: nowrap;
-
-
-
 }
+
+.section-subtitle {
+  display: block;
+  width: 100%;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #939393;
+  text-align: center;
+}
+
+.section-logo {
+  width: 100%;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+
+
+
+/* =====================================================
+   GAME
+   ===================================================== */
 
 /* === GRID 3×3 === */
 .game-trigger-grid {
@@ -563,11 +589,6 @@ font-size: clamp(1.2rem, 7vw, 3rem);
   margin: 5rem 0;
 }
 
-.section-logo {
-  width: 100%;
-  text-align: center;
-}
-
 
 
 /* =====================================================
@@ -577,7 +598,7 @@ font-size: clamp(1.2rem, 7vw, 3rem);
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   min-height: 200px;
   align-items: flex-end;
  
@@ -592,7 +613,7 @@ font-size: clamp(1.2rem, 7vw, 3rem);
 }
 
 .crew-member-text .bubble {
-  max-width: 160px;
+  max-width: 180px;
 }
 
 @media (min-width: 600px) {
