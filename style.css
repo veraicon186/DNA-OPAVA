@@ -26,7 +26,10 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  background: #101010;
+  background: #000000;
+  background-image: url("pattern.svg");
+  background-repeat: repeat;
+  background-size: 1200px; /* tady si hraješ */
 }
 
 .content {
@@ -72,7 +75,6 @@ p {
   font-weight: 500;
   font-style: normal;
   margin-bottom: 1em;
-  color: black
 }
 
 .love-text {
@@ -219,10 +221,8 @@ a:hover {
 
 
 
-/* barevná fáze defaultně neviditelná */
-.movement-phase {
-  opacity: 0;
-}
+
+
 
 .avatar--unicorn.movement--talk .avatar-movement {
   animation-name: talkUnicorn;
@@ -252,21 +252,6 @@ a:hover {
 }
 
 
-.avatar--unicorn.movement-phase--visible .movement-phase {
-  animation: unicornPhase 3s ease-in-out both;
-  animation-delay: var(--talk-delay, 0s);
-}
-
-@keyframes unicornPhase {
-  0%   { opacity: 0; }
-  20%  { opacity: 0; }
-
-  35%  { opacity: 1; }
-  55%  { opacity: 1; }
-
-  70%  { opacity: 0; }
-  100% { opacity: 0; }
-}
 
 .alfa {
     max-width: 100px;
@@ -366,6 +351,8 @@ svg {
   font-size: 1rem;
   line-height: 1.25;
   overflow-wrap: anywhere;
+  color: #000000;
+
  
 }
 
@@ -437,7 +424,6 @@ svg {
 
 
 /* =====================================================
-    =====================================================
    PODLE AVATARU a PODLE POČTU BUBLIN
    ===================================================== */
 
@@ -470,19 +456,102 @@ svg {
   flex-direction: column;
 
 }
+/* =====================================================
+   DUHA – FINÁLNÍ OPRAVENÁ VERZE
+   ===================================================== */
 
+/* 1️⃣ default – rainbow fáze je všude vypnutá */
+.movement-phase {
+  opacity: 0;
+  animation: none;
+}
 
- 
+/* 2️⃣ avatar musí mít explicitní povolení */
+.avatar--rainbow .movement-phase {
+  opacity: 0;
+}
 
- /* breakpoints */
- /* @media (min-width: 600px)
-  šířka scroll obsahu max-width: 720–768px */
+/* 3️⃣ animace se spustí POUZE pokud:
+      – message má rainbow fázi
+      – avatar má avatar--rainbow */
+.message--rainbow-phase
+.avatar--rainbow
+.movement-phase {
+  animation: unicornPhase 7s ease-in-out both;
+}
 
- /*  @media (min-width: 1024px)
-    šířka scroll obsahu max-width: 840–960ppx */
+/* =====================================================
+   UNICORN PHASE
+   ===================================================== */
+@keyframes unicornPhase {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  55%  { opacity: 1; }
+  70%  { opacity: 0; }
+  100% { opacity: 0; }
+}
 
- /* @media (min-width: 1440px)
-    šířka scroll obsahu max-width: 840–960ppx */
+/* =====================================================
+   BUBBLE RAINBOW
+   ===================================================== */
+
+.bubble-stack {
+  position: relative;
+}
+
+/* základní bublina */
+.bubble-stack .bubble:not(.bubble--rainbow) {
+  position: relative;
+}
+
+/* rainbow overlay */
+.bubble--rainbow {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+/* fade-in rainbow bubliny */
+.message--rainbow-phase .bubble--rainbow {
+  animation: bubbleFadeIn 0.8s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes bubbleFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* schovej text v základní bublině */
+.bubble-stack
+.bubble:not(.bubble--rainbow)
+.bubble-content p {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.message--rainbow-phase
+.bubble-stack
+.bubble:not(.bubble--rainbow)
+.bubble-content p {
+  opacity: 0;
+  transition-delay: 1s;
+}
+
+/* bílé písmo v rainbow bublině */
+.message--rainbow-phase
+.bubble--rainbow
+.bubble-content p {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+/* rainbow SVG pozadí */
+.message--rainbow-phase .bubble--rainbow::before {
+  background-image: url("bubble_l_rainbow.svg");
+}
+
 
 
 /* =====================================================
@@ -521,6 +590,11 @@ font-size: clamp(1.2rem, 7vw, 3rem);
   margin-top: 5rem;
 }
 
+.dna-logo {
+
+  margin: 10rem auto 0 auto;
+
+}
 
 
 
@@ -617,15 +691,11 @@ font-size: clamp(1.2rem, 7vw, 3rem);
   align-items: center; 
 }
 
-.crew-member-text .bubble {
-  max-width: 180px;
-}
-
-@media (min-width: 600px) {
-  .crew-member-text .bubble {
-    max-width: 200px;
-  }
-}
+ .crew-member-text .bubble {
+  min-width: 210px;
+  
+ }
+ 
 
 
 .crew-name {
@@ -637,7 +707,7 @@ font-size: clamp(1.2rem, 7vw, 3rem);
 }
 
 .crew-button {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-weight: bold;
   font-size: 0.9rem;
   font-family: "Chakra Petch", sans-serif;
@@ -652,15 +722,20 @@ font-size: clamp(1.2rem, 7vw, 3rem);
 }
 
 
-
-
 button:hover {
     background-color: #0056b3;
 }
 
 
-.dna-logo {
 
-  margin: 10rem auto 0 auto;
 
-}
+
+ /* breakpoints */
+ /* @media (min-width: 600px)
+  šířka scroll obsahu max-width: 720–768px */
+
+ /*  @media (min-width: 1024px)
+    šířka scroll obsahu max-width: 840–960ppx */
+
+ /* @media (min-width: 1440px)
+    šířka scroll obsahu max-width: 840–960ppx */

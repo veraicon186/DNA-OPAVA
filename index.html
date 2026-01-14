@@ -925,7 +925,7 @@
 
                 <div class="bubble">
                   <div class="bubble-content">
-                    <p>GG, vyhráváš! Ano, DNA OPAVA je opravdu kulatá</p>
+                    <p>GG, vyhráváš! Ano, DNA je opravdu kulatá</p>
                   </div>
                 </div>
 
@@ -1003,7 +1003,7 @@
 
             <div class="bubble bubble--rd bubble--pookie">
               <div class="bubble-content">
-                <p>A když jsem teda  vítěz, vezmete mne do crew?</p>
+                <p>A když jsem teda W, vezmete mne do crew?</p>
               </div>
             </div>
              
@@ -1043,7 +1043,7 @@
 
                 <div class="bubble">
                   <div class="bubble-content">
-                    <p>Jasně, když umíš poznat DNA OPAVA, tak můžeš s námi sestavit novou vizuální identitu města OPAVA</p>
+                    <p>Jasně, když umíš poznat tvar DNA, tak můžeš s námi objevovat DNA Opavy a navrhnout její novou vizuální identitu.</p>
                   </div>
                 </div>
         
@@ -1121,12 +1121,12 @@
                 <div class="bubble-container">
                       <div class="bubble bubble--rd">
                         <div class="bubble-content">
-                          <p>Navrhovat IDENTITU?<br>To je můj sen!</p>
+                          <p>Identita?!<br>Můj top skill!</p>
                         </div>
                       </div>
 
                       <div class="bubble bubble--ru">
-                          <div class="bubble-content id="love-bubble">
+                          <div class="bubble-content" id="love-bubble">
                             <p class="love-text">I
                               <span class="inline-icon">
                               <svg class="heart-symbol"
@@ -1496,8 +1496,8 @@
            </div>
 
 
-            <div class="message right">
-            <div class="avatar avatar--unicorn movement--talk avatar--mirror">
+        <div class="message right message--rainbow-phase">
+            <div  class="avatar avatar--unicorn movement--talk avatar--mirror avatar--rainbow">
               <svg class="avatar-svg unicorn"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 328.8 422.4"
@@ -1566,11 +1566,20 @@
             </div>
 
 
-            <div class="bubble bubble--rd ">
-              <div class="bubble-content">
-                <p>Teď ji společně můžeme pořádně oživit barvami</p>
-              </div>
+            <div class="bubble-stack">
+                    <div class="bubble bubble--rd">
+                      <div class="bubble-content">
+                      <p>Teď ji společně můžeme pořádně oživit barvami</p>
+                      </div>
+                    </div>
+
+                    <div class="bubble bubble--rd bubble--rainbow">
+                      <div class="bubble-content">
+                      <p>Teď ji společně můžeme pořádně oživit barvami</p>
+                      </div>
+                    </div>
             </div>
+
              
           </div>
 
@@ -2055,7 +2064,7 @@
                             <div class="crew-member-text">
                                 <div class="bubble">
                                    <div class="bubble-content">
-                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                      <p>Čauky, prý mám moc otázek, ale prý je se mnou sranda.</p>
                                       <button class="crew-button">merch</button>
                                    </div>
                                 </div>
@@ -2134,7 +2143,7 @@
                             <div class="crew-member-text">
                                 <div class="bubble">
                                    <div class="bubble-content">
-                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                      <p>Vím, že toho moc vím. No, jsem tak trochu jistě nerd.</p>
                                       <button class="crew-button">merch</button>
                                     </div>
                                 </div>
@@ -2224,7 +2233,7 @@
                             <div class="crew-member-text">
                                 <div class="bubble">
                                     <div class="bubble-content">
-                                        <p>Prý jsem tuff, ale takový je i život, ne?!</p>
+                                        <p>Většinou mě  kolektivní záležitosti děsí, ale miluju být v kreativním módu. Tak to snad spolu nějak zvládneme.</p>
                                         <button class="crew-button">merch</button>
                                     </div>
                                 </div>
@@ -2266,6 +2275,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const avatar = message.querySelector(".avatar");
       const bubble = message.querySelector(".bubble p");
       const movement = message.querySelector(".avatar-movement");
+      const movementPhase = message.querySelector(".movement-phase");
 
       if (!avatar || !bubble || !movement) return;
 
@@ -2275,19 +2285,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const textLength = bubble.textContent.length;
         const loops = Math.min(4, Math.max(1, Math.ceil(textLength / 20)));
 
-        // 🎲 náhodné zpoždění (aby nemluvili synchronně)
-        const randomDelay = Math.random() * 0.6; // 0–0.6 s
+        const randomDelay = Math.random() * 0.6;
         movement.style.animationDelay = `${randomDelay}s`;
-
         movement.style.animationIterationCount = loops;
         movement.style.animationPlayState = "running";
 
+        // 🌈 AKTIVACE RAINBOW MESSAGE
+        if (movementPhase) {
+          message.classList.add("message--rainbow-phase");
+          movementPhase.style.animationPlayState = "running";
+        }
+
       } else {
-        // ⏹ RESET při odchodu ze záběru
+        // ⏹ RESET
 
         movement.style.animationPlayState = "paused";
         movement.style.animationDelay = "0s";
         movement.style.animationIterationCount = "infinite";
+
+        // 🌈 DEAKTIVACE RAINBOW MESSAGE
+        if (movementPhase) {
+          message.classList.remove("message--rainbow-phase");
+          movementPhase.style.animationPlayState = "paused";
+        }
       }
 
     });
@@ -2296,6 +2316,8 @@ document.addEventListener("DOMContentLoaded", () => {
   messages.forEach(msg => observer.observe(msg));
 });
 </script>
+
+
 
 
 <script>
