@@ -784,6 +784,7 @@ background: linear-gradient(90deg,rgb(8, 70, 255) 0%, rgb(10, 82, 255) 24%, rgb(
   position: absolute;
   top: 8px;
   right: 8px;
+  color: #000;
 
   background: rgba(255,255,255,0.9);
   border: none;
