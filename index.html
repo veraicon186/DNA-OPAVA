@@ -1050,7 +1050,7 @@
           </div>
 
             <div class="message right">
-                  <div class="avatar avatar--unicorn movement--talk avatar--mirror higher--l">
+                  <div class="avatar avatar--unicorn movement--talk avatar--mirror higher--l avatar--rainbow">
                     <svg class="avatar-svg unicorn"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 328.8 422.4"
@@ -1735,7 +1735,7 @@
 
 
           <div class="message left">
-            <div class="avatar avatar--unicorn movement--talk ">
+            <div class="avatar avatar--unicorn movement--talk avatar--rainbow">
               <svg class="avatar-svg unicorn"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 328.8 422.4"
@@ -1977,10 +1977,13 @@
                             <div class="crew-member-text">
                                 <div class="bubble">
                                    <div class="bubble-content">
-                                      <p>Prý jsem tuff, ale takový je i život, ne?!</p>
-                                      <button class="crew-button">merch</button>
+                                      <p>Jsem tuff, ale takový je i život, ne?!</p>
+                                    <button class="crew-button"  data-image="img/alpha-merch.jpg"
+>merch</button>
                                     </div>
                                 </div>
+                                
+
                             </div>
 
                       </div>
@@ -2065,7 +2068,7 @@
                                 <div class="bubble">
                                    <div class="bubble-content">
                                       <p>Čauky, prý mám moc otázek, ale prý je se mnou sranda.</p>
-                                      <button class="crew-button">merch</button>
+                                      <button class="crew-button"  data-image="img/pookie-merch.jpg">merch</button>
                                    </div>
                                 </div>
                             </div>
@@ -2144,7 +2147,7 @@
                                 <div class="bubble">
                                    <div class="bubble-content">
                                       <p>Vím, že toho moc vím. No, jsem tak trochu jistě nerd.</p>
-                                      <button class="crew-button">merch</button>
+                                      <button class="crew-button"   data-image="img/brainbox-merch.jpg">merch</button>
                                     </div>
                                 </div>
                             </div>
@@ -2234,7 +2237,7 @@
                                 <div class="bubble">
                                     <div class="bubble-content">
                                         <p>Většinou mě  kolektivní záležitosti děsí, ale miluju být v kreativním módu. Tak to snad spolu nějak zvládneme.</p>
-                                        <button class="crew-button">merch</button>
+                                        <button class="crew-button" data-image="img/unicorn-merch.jpg">merch</button>
                                     </div>
                                 </div>
                             </div>
@@ -2371,6 +2374,44 @@ document.querySelectorAll('.bubble').forEach(bubble => {
       video.play();
     });
   });
+</script>
+
+
+<div class="image-modal" id="imageModal">
+  <div class="image-modal-overlay"></div>
+
+  <div class="image-modal-content">
+    <div class="image-wrapper">
+      <img src="" alt="" id="modalImage">
+      <button class="image-modal-close" aria-label="Zavřít">&times;</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const closeBtn = modal.querySelector('.image-modal-close');
+const overlay = modal.querySelector('.image-modal-overlay');
+
+document.querySelectorAll('.crew-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const imgSrc = button.dataset.image;
+    modalImage.src = imgSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeModal() {
+  modal.classList.remove('active');
+  modalImage.src = '';
+  document.body.style.overflow = '';
+}
+
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 </script>
 
 

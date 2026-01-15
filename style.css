@@ -711,20 +711,122 @@ font-size: clamp(1.2rem, 7vw, 3rem);
   font-weight: bold;
   font-size: 0.9rem;
   font-family: "Chakra Petch", sans-serif;
-  background-color: #007BFF;
+  background: linear-gradient(90deg,rgb(12, 5, 157) 0%, rgb(8, 8, 179) 24%, rgba(20, 0, 255, 1) 100%);
   color: #fff;
   border: none;
   padding: 0.5em 1em;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  
  
 }
 
 
 button:hover {
-    background-color: #0056b3;
+background: linear-gradient(90deg,rgb(8, 70, 255) 0%, rgb(10, 82, 255) 24%, rgb(23, 189, 255) 100%);}
+
+/* =====================================================
+   IMAGES
+   ===================================================== */
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
 }
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+
+.image-modal.active {
+  display: block;
+}
+
+/* Šedý filtr pozadí */
+.image-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Obsah */
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content img {
+  max-height: 85vh;   /* výška obrázku = 85 % výšky displeje */
+  max-width: 90vw;    /* pojistka pro landscape */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Zavírací křížek */
+.image-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: rgba(255,255,255,0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+
+  z-index: 2;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+}
+
+.image-modal-close:hover {
+  background: #fff;
+}
+
+
+
+/* mobil */
+@media (max-width: 600px) {
+  .image-modal-content img {
+    max-height: 80vh;
+  }
+}
+
+/* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .image-modal-content img {
+    max-height: 85vh;
+  }
+}
+
+/* desktop */
+@media (min-width: 1025px) {
+  .image-modal-content img {
+    max-height: 75vh;
+  }
+}
+
 
 
 
