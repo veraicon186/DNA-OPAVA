@@ -771,7 +771,7 @@ background: linear-gradient(90deg,rgb(8, 70, 255) 0%, rgb(10, 82, 255) 24%, rgb(
 }
 
 .image-modal-content img {
-  max-height: 85vh;   /* výška obrázku = 85 % výšky displeje */
+  max-height: 90svh;   /* výška obrázku = 85 % výšky displeje */
   max-width: 90vw;    /* pojistka pro landscape */
   width: auto;
   height: auto;
@@ -809,7 +809,7 @@ background: linear-gradient(90deg,rgb(8, 70, 255) 0%, rgb(10, 82, 255) 24%, rgb(
 /* mobil */
 @media (max-width: 600px) {
   .image-modal-content img {
-    max-height: 80vh;
+    max-height: 90vh;
   }
 }
 
